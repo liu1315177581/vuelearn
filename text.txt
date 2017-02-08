@@ -1,0 +1,35 @@
+mvvm
+m 	数据
+v 	视图层
+vm	视图模板
+
+Vue中的内置指令
+	v-bind	动态的绑定数据，简写为:			v-on	绑定事件监听器，简写为@
+	v-text	更新数据，会覆盖已有的结构		v-html	可以解析数据中的html结构  <span v-html="html"></span>
+	v-show	根据值的真假，切换元素的display属性	v-if	根据值的真假，切换元素会被销毁，重建
+	v-else-if 多条件判断，为真则渲染		v-else  条件都不符合渲染
+	v-for	基于原数据多次渲染元素或模板块		v-model	在表单控件元素上创建双向数据绑定
+	v-pre	跳过元素和子元素的编译过程		v-once	只渲染一次，随后数据更新不重新渲染
+	v-cloak	隐藏未编译的Mustache语法，css中设置[v-cloak]{display:none}
+
+
+模板
+	html
+		文本差值{{}} 可以写一些简单的表达式(三目)
+		
+	templeta 挂载元素的内容都会被替换
+		let str = '<div>nihao</div>'  
+		//可以写成<script type="x-template" id="temp"> <div>hello</div> <script>  new Vue({ el:'#demo',data:obj,template:"#temp" }) 
+
+		new Vue({
+			el:'#div',
+			data:data,
+			methods:{
+				clickHandle(){
+					alert(1)
+				}
+			},
+			template:str
+		})
+
+	render
