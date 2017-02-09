@@ -4,7 +4,7 @@ v 	视图层
 vm	视图模板
 
 Vue中的内置指令
-	v-bind	动态的绑定数据，简写为:			v-on	绑定事件监听器，简写为@
+	v-bind	动态的绑定数据，简写为:			v-on	绑定事件监听器，简写为@  v-on:eventName = "eventHandle事件处理函数"
 	v-text	更新数据，会覆盖已有的结构		v-html	可以解析数据中的html结构  <span v-html="html"></span>
 	v-show	根据值的真假，切换元素的display属性	v-if	根据值的真假，切换元素会被销毁，重建
 	v-else-if 多条件判断，为真则渲染		v-else  条件都不符合渲染
@@ -32,4 +32,45 @@ Vue中的内置指令
 			template:str
 		})
 
-	render
+	模板 render 函数
+		var vm = new Vue({
+			el:'#demo',
+			data:obj,
+			render(createElement){
+				return createElement(
+					'ul',
+					[
+						createElement("li",1),
+						createElement('li',2)
+					]
+				)
+			}
+		})
+		数据对象属性
+		class:{}	//绑定class，跟v-bind:class 一样的API
+		style:{}	//绑定样式，跟v-bind:style 一样的API
+		attrs:{}	//添加行间属性
+		domProps:{}	//DOM元素属性
+		on:{}		//绑定事件
+		
+		nativeOn:{}	//监听原生事件
+		directives:{}	//自定义指令
+		scopedSlots:{}	//slot作用域
+		slot:{}		//定义slot名称
+		key:'key'	//给元素添加唯一标识
+		ref:'ref'	//引用信息
+
+
+事件修饰符
+	事件处理函数只有纯粹的逻辑判断，不处理DOM事件的细节
+		例如，阻止冒泡，取消默认行为，判断按键
+	修饰符的位置：
+		v-on:eventName 修饰符
+	修饰符：
+		.stop	.prevent   .capture   .self   .once
+	按键修饰符：
+		.enter	.tab   .delete   .esc
+		.space  .up    .down     .left    .right
+		.ctrl	.alt   .shift    .meta
+		.键值
+
