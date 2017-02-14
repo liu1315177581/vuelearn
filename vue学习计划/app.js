@@ -34,7 +34,8 @@ new Vue({
 	data:{
 		list:list,
 		todo:'',
-		edtorTodos:''  //记录正在编辑的数据
+		edtorTodos:'',  //记录正在编辑的数据
+		beforeTitle:''  //记录正在编辑数据的title
 	},
 	methods:{
 		addTodo(ev){
@@ -51,6 +52,23 @@ new Vue({
 		},
 		edtortodo(todo){
 			this.edtorTodos = todo;
+			this.beforeTitle = todo.title;
+		},
+		edtorTodoed(todo){
+			this.edtorTodos = "";
+		},
+		cancelTodo(todo){
+			todo.title = this.beforeTitle;
+			this.edtorTodos = '';
+		}
+	},
+	directives:{
+		"focus":{
+			update(el,binding){
+				if(binding.value){
+					el.focus();
+				}
+			}
 		}
 	}
 });

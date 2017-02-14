@@ -39,7 +39,11 @@
                         <input class="toggle" type="checkbox" v-model="item.isChecked">
                         <label class="view" @dblclick="edtortodo(item)">{{item.title}}</label>
                         <button class="destroy" @click="deleteTodo(item)"></button>
-                        <input v-focus="edtorTodos === item" class="edit" type="text" v-model="item.title">
+                        <input v-focus="edtorTodos === item"
+                        @blur="edtorTodoed(item)"
+                        @keyup.13="edtorTodoed(item)"
+                        @keyup.esc="cancelTodo(item)"
+                        class="edit" type="text" v-model="item.title">
                     </div>
                 </li>
             </ul>

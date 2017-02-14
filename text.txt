@@ -12,6 +12,21 @@ Vue中的内置指令
 	v-pre	跳过元素和子元素的编译过程		v-once	只渲染一次，随后数据更新不重新渲染
 	v-cloak	隐藏未编译的Mustache语法，css中设置[v-cloak]{display:none}
 
+自定义指令
+	除了vue内置的指令，可以自己设置指令
+	
+	选项对象的directives属性
+		{
+			directives:{}
+		}
+	钩子函数：
+		update被绑定元素所在的模板更新时调用
+		钩子函数中参数：
+			el:指令所绑定的元素，可以用来直接操作DOM
+			binding:一个对象
+				value：指令的绑定值
+	
+
 
 模板
 	html
