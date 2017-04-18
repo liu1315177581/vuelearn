@@ -1,0 +1,2 @@
+1，使用 <router-link to="/foo"></router-link>    来导航
+   也可使用name	<router-link :to={name:"foo",params:{}}></router-link>
